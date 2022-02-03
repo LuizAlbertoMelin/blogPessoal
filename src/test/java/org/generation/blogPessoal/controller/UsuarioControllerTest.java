@@ -2,7 +2,6 @@ package org.generation.blogPessoal.controller;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.util.Optional;
 
 import org.generation.blogPessoal.model.Usuario;
 import org.generation.blogPessoal.service.UsuarioService;
@@ -66,10 +65,10 @@ public class UsuarioControllerTest {
 	@Order(3)
 	@DisplayName("alterar um Usuário")
 	public void deveAtualizarUmUsuarios(){
-		Optional<Usuario> usuarioCreate = Optional.of(usuarioService.CadastrarUsuario(new Usuario(0L,
-				"Julia", "julia@email.com", "julia123")));
+		Usuario usuarioCreate = usuarioService.CadastrarUsuario(new Usuario(0L,
+				"Julia", "julia@email.com", "julia123"));
 		
-		Usuario usuarioUpdate = new Usuario(usuarioCreate.get().getId(),
+		Usuario usuarioUpdate = new Usuario(usuarioCreate.getId(),
 				"Julia ramos", "julia@email.com", "julia123");
 		
 		HttpEntity<Usuario> requisicao = new HttpEntity<Usuario>(usuarioUpdate);
