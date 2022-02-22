@@ -38,6 +38,26 @@ public class Usuario {
 	@NotBlank
 	@Size(min = 5, max = 100)
 	private String senha;
+	
+	private String tipo;
+	
+	private String foto;
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
 
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("usuario")
